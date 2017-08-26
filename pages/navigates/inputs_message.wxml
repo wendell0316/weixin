@@ -1,0 +1,15 @@
+<!--inputs_message.wxml-->
+<view class="list">
+	<navigator url="../navigates/edit_inputs" class="msg">
+        <view>
+          <text class="place">施肥 </text> 
+          <text class="area">农家肥</text>
+        </view>
+        
+        <view class="date">农家肥料不但含有各种大量喝中微量营养元素</view>
+        
+    </navigator>
+    <navigator url="../navigates/add_inputs">
+        <view class="detail"><image src="../../images/add.png"></image></view>
+    </navigator>
+</view>
