@@ -1,5 +1,5 @@
 <view class="list" wx:for="{{list}}" wx:key="id">
-    <navigator url="">
+    <navigator url="../navigates/view_pic">
         <view class="weui-cell__hd">
             <image src="{{src[index]}}" class="act_pic"></image>
         </view>
@@ -15,9 +15,11 @@
           <text class="worker">{{item.executorName}}</text>
         </view>
     </navigator>
-    <navigator url="../navigates/detail_act?farmWorkSid={{item.farmWorkSid}}">
+    <view class="kuoda">
+      <navigator url="../navigates/detail_act?farmWorkSid={{item.farmWorkSid}}">
         <view class="detail"><image src="../../images/more.png"></image></view>
-    </navigator>
+      </navigator>
+    </view>
 </view>
 <button bindtap="addAction">增加农事活动</button>
 <button bindtap="chooseImageTap">上传图片</button>

@@ -10,6 +10,39 @@ Page({
   },
 
   onLoad:function(){
+    wx.login({
+      success: function (res) {
+        var code = res.code;
+        var name = wx.getStorageSync("name")
+        var pwd = wx.getStorageSync("pwd")
+        wx.getUserInfo({
+          success: function (res) {
+            wx.request({
+
+              url: 'https://www.inteliagpf.cn/api/1.0/ll/system/account/login',
+              method: "POST",
+              data: {
+                userNo: name,
+                password: pwd
+              },
+              fail: function (res) {
+              },
+              success: function (res) {
+                console.log(res.data.message)
+                var sessionId = res.data.contents.sessionId;
+                var companySid = res.data.contents.companySid;
+                app.data.session = sessionId;
+                app.data.companySid = companySid;
+
+                wx.switchTab({
+                  url: '../index/index'
+                })
+              }
+            })
+          }
+        })
+      }
+    })
     var that=this;
     wx.getSystemInfo({
       success: function(res) {
@@ -32,7 +65,9 @@ Page({
       this.setData({ password: userPassword });
     }
   },
-
+  onLaunch: function () {
+   
+  },
   formBindSubmit: function (e) {
     var that = this;
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -105,7 +140,38 @@ Page({
     
   },
 
+  onLaunch:function(){
+    wx.login({
+      success: function (res) {
+        var code = res.code;
+        var name = wx.getStorageSync("name")
+        var pwd = wx.getStorageSync("pwd")
+        wx.getUserInfo({
+          success: function (res) {
+            wx.request({
 
+              url: 'https://www.inteliagpf.cn/api/1.0/ll/system/account/login',
+              method: "POST",
+              data: {
+                userNo: name,
+                password: pwd
+              },
+              fail: function (res) {
+              },
+              success: function (res) {
+                console.log(res.data.message)
+
+
+                wx.switchTab({
+                  url: 'pages/index/index'
+                })
+              }
+            })
+          }
+        })
+      }
+    })
+  },
   onHide: function () {
     
   },

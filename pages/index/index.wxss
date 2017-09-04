@@ -33,7 +33,10 @@ page{
 .msg{
   width: 60%
 }
-
+.kuoda{
+  height: 5rem;
+  line-height: 5rem
+}
 .detail image{
   width: 1.2rem;
   height: 1.2rem;

@@ -8,5 +8,4 @@
     <text class="messge">公司信息</text>
     <image src="../../images/more.png" class="img"></image>
   </navigator>
-  <view>{{sessionId}}</view>
 </view>

@@ -13,20 +13,24 @@ page{
   border-bottom-color: #bbbbbb;
   height: 5rem;
 }
+.looked{
+  height: 2rem;
+}
 .place{
   font-weight: 800;
   margin-left: 1.5rem;
+  line-height: 2rem;
 }
 .area{
   font-size: 0.8rem;
-
+  line-height: 2rem;
 }
 .date{
   font-size: 0.7rem;
   height: 1.5rem;
   line-height: 1.4rem;
   color: #777;
-  margin-left: 0.5rem;
+  margin-left: 1.5rem;
   width: 92%;
   overflow: hidden;
 }

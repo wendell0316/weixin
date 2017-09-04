@@ -15,6 +15,14 @@ App({
     varietyCode:'',
     base:'',
     land:'',
+  },
+  onLaunch:function(){
+    this.getUserDataToken();
+  },
+  getUserDataToken:function(){
+    var that=this;
+    
+    
   }
   
 })

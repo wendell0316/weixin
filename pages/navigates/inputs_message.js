@@ -1,13 +1,23 @@
 // inputs_message.js
 var app=getApp();
-var contents=[];
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    contents:contents
+    contents:'',
+    chemicalName:'',
+    chemicalVariety:'',
+    fun:'',
+    producerName:'',
+    producerNo:'',
+    usageAmountDenominator:'',
+    usageUnit:'',
+    safeInterval:'',
+
+
   },
 
   /**
@@ -18,6 +28,16 @@ Page({
     var that = this;
     var sessionId=app.data.session;
     var companySid=app.data.companySid;
+    var chemicalName=[];
+    var chemicalVariety=[];
+    var effectiveConstituent=[];
+    var fun=[];
+    var producerName=[];
+    var producerNo;
+    var usageAmountDenominator=[]
+    var usageUnit=[];
+    var safeInterval=[];
+    var contents=[]
     wx.request({
       url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/input/getInputs',
       data: {
@@ -28,7 +48,17 @@ Page({
       method: 'POST',
       dataType: '',
       success: function(res) {
-        contents=res.data.comtents
+        contents=res.data.contents;
+        console.log(contents)
+        chemicalName=res.data.contents.map(function(value){return value.chemicalName});
+        chemicalVariety = res.data.contents.map(function (value) { return value.chemicalVariety })
+        effectiveConstituent = res.data.contents.map(function (value) { return value.effectiveConsituent })
+        fun = res.data.contents.map(function (value) { return value.function })
+        producerName = res.data.contents.map(function (value) { return value.producerName })
+        producerNo = res.data.contents.map(function (value) { return value.producerNo })
+        usageAmountDenominator = res.data.contents.map(function (value) { return value.usageAmountDenominator })
+        usageUnit = res.data.contents.map(function (value) { return value.usageUnit })
+        safeInterval = res.data.contents.map(function (value) { return value.safeInterval })
         that.setData({
           contents:contents
         })
